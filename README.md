@@ -12,5 +12,7 @@ O [MARS MIPS](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/bl
 Como é um executável Java, o MARS não requer instalação. Basta ter o Java Runtime Environment (JRE) instalado na máquina para executá-lo diretamente, tornando-o portátil e fácil de usar.
 
 ## Listas de exercícios
-- Lista 01 - Operadores, Entrada e Saída
-- Lista 02 - Estrutura de Decisão
+- [Lista 01](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Lista01) - Operadores, Entrada e Saída
+- [Lista 02](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Lista02) - Estrutura de Decisão
+- [Lista 03](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Lista03) - Laços
+- [Lista 04](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Lista04) - Modularização
