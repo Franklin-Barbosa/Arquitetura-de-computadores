@@ -1,3 +1,5 @@
+#  Impressão da tabuada em três colunas.
+
 .text
 main: 
     addi $8, $0, 11       # Condição de parada (i = 11)
@@ -10,62 +12,67 @@ outer_loop:
     addi $18, $0, 11      # Condição de parada (j = 11)
     addi $19, $0, 1       # Inicialização de j = 1
 
+    # Inicializa contador de colunas (3 por linha)
+    addi $21, $0, 0       # colunas = 0
+
 inner_loop:
     beq $19, $18, next_i  # Se j == 11, sai do loop interno
 
-    # Imprime i
-    add $4, $0, $9
+    add $4, $0, $9 	  # Imprime i
     addi $2, $0, 1
     syscall
 
-    # Imprime '*'
-    addi $4, $0, '*'
+    addi $4, $0, '*' 	  # Imprime '*'
     addi $2, $0, 11
     syscall
 
-    # Imprime j
-    add $4, $0, $19
+    add $4, $0, $19	 # Imprime j
     addi $2, $0, 1
     syscall
 
-    # Imprime '='
-    addi $4, $0, '='
+    addi $4, $0, '='	 # Imprime '='
     addi $2, $0, 11
     syscall
 
-    # Calcula i * j
-    mul $20, $9, $19
+    mul $20, $9, $19	 # Calcula i * j
 
-    # Imprime o resultado de i * j
-    add $4, $0, $20
+    add $4, $0, $20      # Imprime resultado de i * j
     addi $2, $0, 1
     syscall
 
-    # Imprime um espaço após cada multiplicação
-    addi $4, $0, ' '
+    addi $4, $0, ' '     # Imprime um espaço
     addi $2, $0, 11
     syscall
 
-    # Incrementa j (j = j + 1)
-    addi $19, $19, 1
+    addi $21, $21, 1     # Incrementa contador de colunas
+    beq $21, 3, newline  # Se colunas == 3, faz quebra de linha
+
+    addi $19, $19, 1	 # Incrementa j (j = j + 1)
     j inner_loop         # Volta para o teste do loop interno
 
-next_i:
-    # Quebra de linha ao fim de cada linha da tabuada
-    jal printQL
+newline:
+    jal printQL          # Quebra de linha
+    addi $21, $0, 0      # Reseta o contador de colunas
+    j inner_loop         # Continua o loop interno
 
-    # Incrementa i (i = i + 1)
-    addi $9, $9, 1
-    j outer_loop         # Volta para o teste do loop externo
+next_i:
+    jal printQL		# Quebra de linha ao fim da tabuada de um número
+
+    addi $9, $9, 1	# Incrementa i (i = i + 1)
+    j outer_loop        # Volta para o teste do loop externo
 
 end:
-    # Finaliza o programa
-    addi $2, $0, 10
+    addi $2, $0, 10	# Finaliza programa
     syscall
 
-# Função para imprimir quebra de linha
+#================================================
+# Funcao printQL para imprimir quebra de linha
+# nome: PrintQL
+# entrada: void
+# saida: void (quabra de linha do terminal)
+# Regs sujos: $4 e $2
 printQL:
-    addi $4, $0, 10       # Código ASCII para '\n'
-    addi $2, $0, 11       # Código do sistema para imprimir caractere
+    addi $4, $0, '\n' 	# print quebra de linha
+    addi $2, $0, 11     # Código do sistema para imprimir caractere
     syscall
-    jr $31                # Retorna para a instrução principal
+    jr $31              # Retorna para a instrução principal
