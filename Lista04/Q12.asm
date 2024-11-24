@@ -14,6 +14,7 @@ main:
     syscall
     add $4 $2 $0
     jal triangulo
+    
     addi $2 $0 10
     syscall
 
@@ -36,14 +37,17 @@ subtrai:
 segundo_laco:
     beq $10 $15 fim_segundo_laco
     add $4 $0 '*'
+    
     addi $2 $0 11
     syscall
+    
     addi $10 $10 1
     j segundo_laco
 fim_segundo_laco:
     addi $4 $0 '\n'
     addi $2 $0 11
     syscall
+    
     addi $9 $9 1
     j primeiro_laco
 fim_primeiro_laco:
