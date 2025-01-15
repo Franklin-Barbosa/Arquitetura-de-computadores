@@ -16,3 +16,4 @@ Como é um executável Java, o MARS não requer instalação. Basta ter o Java R
 - [Lista 02](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Lista02) - Estrutura de Decisão
 - [Lista 03](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Lista03) - Laços
 - [Lista 04](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Lista04) - Modularização
+- [Projeto](https://github.com/Franklin-Barbosa/Arquitetura-de-computadores/tree/main/Projet-de-joguinho) - Projeto de Joguinho em Assembly
